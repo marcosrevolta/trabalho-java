@@ -20,7 +20,7 @@ public class JogoPOO {
                 int nivel = 1;
                 int rodada = 1;
                 
-                System.out.println("Tentaticas restantes"+vidas+"Pontuação"+pontuacao);
+                System.out.println("Tentaticas restantes %d Pontuação %d",vidas,pontuacao);
                 System.out.println("Nivel"+nivel+"Rodada"+rodada);
              }
         }while(opcao != 2);
