@@ -19,63 +19,207 @@ public class JogoPOO {
             	
                 int vidas = 3;
                 int pontuacao = 0;
-                int nivel = 1;
                 int respostasCertas = 0;
+                int rodada = 1;
                 
                 System.out.println("Tentativas restantes: " + vidas + " // Pontuacao: " + pontuacao);
-                System.out.println("Nivel "+nivel+"Rodada "+rodada);
                 
 
                 //  NIVEL UM
-
-
-
+                System.out.println("--- NÍVEL UM ---");
                 for (int i = 0; i < 10; i++) {
 
 
                     if(vidas > 0){
 
-                        int num1 = gerador.nextInt(50);
-                        int num2 = gerador.nextInt(50);
-                        int total = num1 + num2;
-
-                        System.out.println(num1 + "Pergunta " + (i + 1) + ":");
-                        System.out.println(num1 + " + " + num2);
+                    	int rand = gerador.nextInt(2);
+                    	int num1 = gerador.nextInt(10);
+                        int num2 = gerador.nextInt(10);                        
+                        int total = 0;
+                        
+                        System.out.println("----------------------------------");
+                        System.out.println("Pergunta " + (i + 1) + ": ");
+                        
+                        if(rand % 2 == 0){
+                        	System.out.println(num1 + " + " + num2);
+                        	total = (num1 + num2);
+                        } else {
+                        	System.out.println(num1 + " - " + num2);
+                        	total = (num1 - num2);
+                        }                       
+                        
                         int resposta = leitor.nextInt();
 
                         if(resposta == total){
 
-                            // certa resposta
                             respostasCertas = (respostasCertas + 1);
+                            rodada = (rodada + 1);
                             pontuacao = pontuacao + 100;
-                            
+                            System.out.println("Acertô Miserávi");
 
                         } else {
 
-                            System.out.println("Como diria o Faustão: ERROOOOOOOOO")
+                            System.out.println("Como diria o Faustão: ERROOOOOOOOO");
                             vidas = (vidas - 1);
+                            System.out.println("Vidas: " + vidas);
+                            System.out.println("----------------------------------");
 
                         }
 
                     } else {
 
-                        System.out.println("GAME. FUCKING. OVER.")
+                        System.out.println("GAME. FUCKING. OVER.");
 
                     }
                     
                 } 
-
-                //  NIVEL DOIS
-                for (int i = 0; i < 10; i++) {
-
-                    
-                    
-                } 
-
-
-
                 
                 System.out.println("Pontuação: " + pontuacao);
+                
+                //  NIVEL DOIS
+                System.out.println("--- NÍVEL DOIS ---");
+                for (int i = 0; i < 10; i++) {                	
+                    if(vidas > 0){
+
+                    	int num1 = gerador.nextInt(10);
+                        int num2 = gerador.nextInt(10);                        
+                        int total = (num1 * num2);
+                        
+                        System.out.println("----------------------------------");
+                        System.out.println("Pergunta " + (i + 1) + ": ");                        
+                        System.out.println(num1 + " * " + num2);
+                        int resposta = leitor.nextInt();
+
+                        if(resposta == total){
+
+                            respostasCertas = (respostasCertas + 1);
+                            rodada = (rodada + 1);
+                            pontuacao = pontuacao + 200;  
+                            System.out.println("Acertô Miserávi");
+
+                        } else {
+
+                            System.out.println("Como diria o Faustão: ERROOOOOOOOO");
+                            vidas = (vidas - 1);
+                            System.out.println("Vidas: " + vidas);
+                            System.out.println("----------------------------------");
+
+                        }
+
+                    } else {
+
+                        System.out.println("GAME. FUCKING. OVER.");
+
+                    }
+                }                
+                    
+                System.out.println("Pontuação: " + pontuacao);
+                
+                
+                //  NIVEL TRÊS
+                System.out.println("--- NÍVEL TRÊS---");
+                for (int i = 0; i < 10; i++) {                	
+                    if(vidas > 0){
+
+                    	int num1 = gerador.nextInt(10);
+                        int num2 = gerador.nextInt(10);                        
+                        int total = (num1 / num2);
+                        
+                        System.out.println("----------------------------------");
+                        System.out.println("Pergunta " + (i + 1) + ": ");                        
+                        System.out.println(num1 + " / " + num2);
+                        System.out.println("(Se precisar, no máximo duas casas decimais)");
+                        int resposta = leitor.nextInt();
+
+                        if(resposta == total){
+
+                            respostasCertas = (respostasCertas + 1);
+                            rodada = (rodada + 1);
+                            pontuacao = pontuacao + 250;  
+                            System.out.println("Acertô Miserávi");
+
+                        } else {
+
+                            System.out.println("Como diria o Faustão: ERROOOOOOOOO");
+                            vidas = (vidas - 1);
+                            System.out.println("Vidas: " + vidas);
+                            System.out.println("----------------------------------");
+
+                        }
+
+                    } else {
+
+                        System.out.println("GAME. FUCKING. OVER.");
+
+                    }
+                }
+                
+                
+	            //  NIVEL QUATRO
+	            System.out.println("--- NÍVEL QUATRO---");
+	            for (int i = 0; i < 10; i++) {                	
+	                if(vidas > 0){
+	
+	                	int rand = gerador.nextInt(99);
+	                	int num1 = gerador.nextInt(99);
+	                    int num2 = gerador.nextInt(99);
+	                    int total = 0;
+	                    
+	                    System.out.println("----------------------------------");
+	                    System.out.println("Pergunta " + (i + 1) + ": ");
+	                    
+	                    if(rand > 25){	                    	
+	                    	if(rand > 50){	                    		
+	                    		if(rand > 75){           
+	                                System.out.println(num1 + " * " + num2);
+	                                total = (num1 * num2);	                    			
+	                    		} else {	                    			
+	                    			System.out.println(num1 + " / " + num2);
+	                    			System.out.println("(Se precisar, no máximo duas casas decimais)");
+	                    			total = (num1 / num2);	                    			
+	                    		}	                    		
+	                    	} else {	                    		
+	                    		System.out.println(num1 + " + " + num2);
+	                    		total = (num1 + num2);
+	                    	}	                    	
+	                    } else {	                    	
+	                    	System.out.println(num1 + " - " + num2);
+	                    	total = (num1 - num2);
+	                    }
+	                    
+	                    int resposta = leitor.nextInt();
+	
+	                    if(resposta == total){
+	
+	                        respostasCertas = (respostasCertas + 1);
+	                        rodada = (rodada + 1);
+	                        pontuacao = pontuacao + 300; 
+	                        System.out.println("Acertô Miserávi");
+	
+	                    } else {
+	
+	                        System.out.println("Como diria o Faustão: ERROOOOOOOOO");
+	                        vidas = (vidas - 1);
+	                        System.out.println("Vidas: " + vidas);
+	                        System.out.println("----------------------------------");
+	
+	                    }
+	
+	                } else {
+	
+	                    System.out.println("GAME. FUCKING. OVER.");
+	
+	                }
+	            }
+            
+                                    
+                System.out.println("ACABOU O GAME, PARABENS CE ACERTOU TUDO AS PERGUNTA");
+                
+                // BONUS DE RESPOSTAS CORRETAS GOES HERE
+                double bonus = (respostasCertas * 1.5);
+                
+                System.out.println("Pontuação Final: " + (pontuacao + bonus));
+                System.out.println("(Bonus: " + bonus + ")");
                 
              }
         } while(opcao != 2);
