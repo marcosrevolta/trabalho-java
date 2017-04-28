@@ -2,7 +2,9 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class JogoPOO {
-
+	public static double arrendondar(double valor){
+		return (double) Math.round(valor * 100) / 100;
+	}
     public static void main(String[] args) {
         int opcao = 0;
         Scanner leitor = new Scanner(System.in);
@@ -121,17 +123,19 @@ public class JogoPOO {
                 for (int i = 0; i < 10; i++) {                	
                     if(vidas > 0){
 
-                    	int num1 = gerador.nextInt(10);
-                        int num2 = gerador.nextInt(10);                        
-                        int total = (num1 / num2);
+                    	double num1 = gerador.nextInt(9)+1;
+                        double num2 = gerador.nextInt(9)+1;                        
+                        float total = (float) arrendondar(num1 / num2);
                         
                         System.out.println("----------------------------------");
                         System.out.println("Pergunta " + (i + 1) + ": ");                        
                         System.out.println(num1 + " / " + num2);
-                        System.out.println("(Se precisar, no máximo duas casas decimais)");
-                        int resposta = leitor.nextInt();
+                        
+                        System.out.println("(Se precisar, no máximo duas casas decimais e separar decimais com ponto)");
+                        float resposta = Float.parseFloat(leitor.next());
+                        //float resposta = leitor.nex
 
-                        if(resposta == total){
+                        if(resposta <= total+0.2 && resposta >= total-0.2 ){
 
                             respostasCertas = (respostasCertas + 1);
                             rodada = (rodada + 1);
@@ -160,10 +164,10 @@ public class JogoPOO {
 	            for (int i = 0; i < 10; i++) {                	
 	                if(vidas > 0){
 	
-	                	int rand = gerador.nextInt(99);
-	                	int num1 = gerador.nextInt(99);
-	                    int num2 = gerador.nextInt(99);
-	                    int total = 0;
+	                	double rand = gerador.nextInt(99)+1;
+	                	double num1 = gerador.nextInt(99)+1;
+	                    double num2 = gerador.nextInt(99)+1;
+	                    double total = 0;
 	                    
 	                    System.out.println("----------------------------------");
 	                    System.out.println("Pergunta " + (i + 1) + ": ");
@@ -175,8 +179,8 @@ public class JogoPOO {
 	                                total = (num1 * num2);	                    			
 	                    		} else {	                    			
 	                    			System.out.println(num1 + " / " + num2);
-	                    			System.out.println("(Se precisar, no máximo duas casas decimais)");
-	                    			total = (num1 / num2);	                    			
+	                    			System.out.println("(Se precisar, no máximo duas casas decimais e separar decimais com ponto)");
+	                    			total = arrendondar(num1 / num2);	                    			
 	                    		}	                    		
 	                    	} else {	                    		
 	                    		System.out.println(num1 + " + " + num2);
@@ -187,7 +191,7 @@ public class JogoPOO {
 	                    	total = (num1 - num2);
 	                    }
 	                    
-	                    int resposta = leitor.nextInt();
+	                    double resposta = Double.parseDouble(leitor.next());
 	
 	                    if(resposta == total){
 	
